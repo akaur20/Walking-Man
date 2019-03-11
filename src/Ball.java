@@ -4,16 +4,18 @@ import java.awt.geom.Ellipse2D;
 
 import javax.swing.JComponent;
 
-public class Ball extends JComponent
+public class Ball extends JComponent implements Update
 {
 
 	private Ellipse2D.Double ball;
 	private int dx = 0, dy = 0;
+	private int x, y;
 	
 	
 	public Ball(int x, int y)
 	{
-		ball = new Ellipse2D.Double(0, 0, 10, 10);
+		this.x = x;
+		this.y = y;
 		this.setSize(11,11);
 		this.setLocation(x, y);
 	}
@@ -21,7 +23,8 @@ public class Ball extends JComponent
 	public void paintCompoonent(Graphics g)
 	{
 		Graphics2D g2 = (Graphics2D) g;
-		g2.draw(ball);
+		ball = new Ellipse2D.Double(0, 0, 10, 10);
+		g2.fill(ball);
 	}
 	
 	public void setDX(int x)
@@ -32,6 +35,11 @@ public class Ball extends JComponent
 	public void setDY(int y)
 	{
 		dy = y;
+	}
+	
+	public void update() 
+	{
+		setLocation(getX() + dx, getY() + dy);
 	}
 
 }
