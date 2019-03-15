@@ -91,7 +91,7 @@ public class WalkingManMain extends JFrame implements ActionListener
 							add(ball);
 							ball.setDX(3);
 							ballList.add(ball);
-							System.out.println(ballList);
+							
 						}
 						
 					}
