@@ -91,6 +91,7 @@ public class WalkingManMain extends JFrame implements ActionListener
 							add(ball);
 							ball.setDX(3);
 							ballList.add(ball);
+							System.out.println(ballList);
 						}
 						
 					}
@@ -133,15 +134,7 @@ public class WalkingManMain extends JFrame implements ActionListener
 		add(man);
 	
 		
-		for(int i=0; i < ballList.size(); i++)
-		{
-			if(ballList.get(i).getX() >= 520)
-			{
-				ballList.remove(i);
-				i--;
-			}
-			
-		}
+		
 	
 		Timer t1 = new Timer(40, this);
 		t1.start();
@@ -149,7 +142,9 @@ public class WalkingManMain extends JFrame implements ActionListener
 		setFocusable(true);
 		
 		setVisible(true);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		
 	}
 	
@@ -163,11 +158,25 @@ public class WalkingManMain extends JFrame implements ActionListener
 		}
 		
 		repaint();
+		
+		for(int i=0; i < ballList.size(); i++)
+		{
+			
+			if(ballList.get(i).getX() >= 600)
+			{
+				remove(ballList.get(i));
+				ballList.remove(i);
+				i--;
+				
+			}
+			
+		}
 	}
 	
 	public static void main(String[] args) 
 	{
 		new WalkingManMain();
+		
 	}
 
 	

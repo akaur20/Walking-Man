@@ -20,7 +20,7 @@ public class Ball extends JComponent implements Update
 		this.setLocation(x, y);
 	}
 	
-	public void paintCompoonent(Graphics g)
+	public void paintComponent(Graphics g)
 	{
 		Graphics2D g2 = (Graphics2D) g;
 		ball = new Ellipse2D.Double(0, 0, 10, 10);
